@@ -63,21 +63,48 @@ function game() {
   // initialize player scores
   let playerScore = 0;
   let computerScore = 0;
+  let playerInput;
+  // let playerInput = prompt("Please select rock, paper, or scissors");
 
-  for (let i = 0; i < 5; i++) {
-    let playerInput = prompt("Please select rock, paper, or scissors");
-    resultMessage = playRound(playerInput, getComputerChoice());
+  // add button logic
+  const btn = document.querySelectorAll("#btn");
+  btn.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      playerInput = e.target.firstChild.data;
+      console.log(e.target.firstChild.data);
+    });
+  });
 
-    // we are checking the returned string for a 'W', meaning the user won the round LOLOL
-    // W's in CHAT LOL
-    if (resultMessage.toLowerCase().includes("w")) {
-      playerScore++;
-      console.log("You won this round!");
-    } else {
-      computerScore++;
-      console.log("You lost this round");
-    }
+  while (playerInput == undefined) {
+    console.log("hi");
+    break;
   }
+  resultMessage = playRound(playerInput, getComputerChoice());
+
+  // we are checking the returned string for a 'W', meaning the user won the round LOLOL
+  // W's in CHAT LOL
+  if (resultMessage.toLowerCase().includes("w")) {
+    playerScore++;
+    console.log("You won this round!");
+  } else {
+    computerScore++;
+    console.log("You lost this round");
+  }
+
+  // for (let i = 0; i < 5; i++) {
+  //   let playerInput = prompt("Please select rock, paper, or scissors");
+  //   resultMessage = playRound(playerInput, getComputerChoice());
+
+  //   // we are checking the returned string for a 'W', meaning the user won the round LOLOL
+  //   // W's in CHAT LOL
+  //   if (resultMessage.toLowerCase().includes("w")) {
+  //     playerScore++;
+  //     console.log("You won this round!");
+  //   } else {
+  //     computerScore++;
+  //     console.log("You lost this round");
+  //   }
+  // }
 
   console.log(`Final Scores Below:`);
   console.log(`You got: ${playerScore}`);
@@ -89,3 +116,5 @@ function game() {
     return "You Lost";
   }
 }
+
+game();
