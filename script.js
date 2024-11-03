@@ -1,3 +1,5 @@
+// This function gets the computer's choice..
+// Returns: a STRING value that is randomly chosen from an array of strings. "Rock", "Paper", "Scissors"
 function getComputerChoice() {
   const options = ["Rock", "Paper", "Scissors"];
   let randomChoice = Math.floor(Math.random() * 3);
@@ -5,16 +7,15 @@ function getComputerChoice() {
   return options[randomChoice];
 }
 
+// Add comment here. 
 function playRound(playerSelection, computerSelection) {
   // Sanitize arguments
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
 
   // Capitalize Selection
-  playerSelection =
-    playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-  computerSelection =
-    computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+  playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+  computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 
   // Result Messages
   let winMessage = `You Win! ${playerSelection} beats ${computerSelection}`;
