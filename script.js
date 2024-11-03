@@ -7,15 +7,18 @@ function getComputerChoice() {
   return options[randomChoice];
 }
 
-// Add comment here. 
+// This function grabs user input for playerSelection and grabs computerSelection through getComputerChoice()
+// Returns: a STRING value that represents if the user won/lost against the computer.
 function playRound(playerSelection, computerSelection) {
   // Sanitize arguments
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
 
   // Capitalize Selection
-  playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-  computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+  playerSelection =
+    playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+  computerSelection =
+    computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 
   // Result Messages
   let winMessage = `You Win! ${playerSelection} beats ${computerSelection}`;
@@ -54,6 +57,8 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+// This function plays 5 rounds of the game.
+// Returns: a STRING value that represents if the user won/lost the GAME.
 function game() {
   // initialize player scores
   let playerScore = 0;
@@ -63,6 +68,8 @@ function game() {
     let playerInput = prompt("Please select rock, paper, or scissors");
     resultMessage = playRound(playerInput, getComputerChoice());
 
+    // we are checking the returned string for a 'W', meaning the user won the round LOLOL
+    // W's in CHAT LOL
     if (resultMessage.toLowerCase().includes("w")) {
       playerScore++;
       console.log("You won this round!");
